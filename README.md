@@ -74,3 +74,4 @@ The application provides customized permission boundaries and 1-click test switc
 - **Cloud Database**: Google Cloud Firestore with security rules deployed
 - **Auth**: Firebase Auth & RBAC State Provider
 - **Print Engine**: Dedicated `@media print` CSS layouts
+"# School-Management-System" 
