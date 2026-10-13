@@ -1,6 +1,8 @@
-# Safe English Boarding School Management System
+# School Management System
 
-A complete, professional, secure, and responsive School Management ERP application designed for **Safe English Boarding School** (Bhimsensthan, Kathmandu, Nepal).
+A complete, professional, secure, and responsive School Management ERP application designed for schools in nepal.
+
+<img width="1888" height="907" alt="image" src="https://github.com/user-attachments/assets/c1f77dcf-074e-4193-8d22-da70e29cf0bb" />
 
 ---
 
