@@ -1,0 +1,73 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /students/{studentId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /staff/{staffId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /attendance/{attendanceId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /exams/{examId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /marks/{markId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /feePayments/{paymentId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /transactions/{transactionId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /notices/{noticeId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /homework/{homeworkId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /system/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}

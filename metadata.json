@@ -1,0 +1,6 @@
+{
+  "name": "Safe English Boarding School Management System",
+  "description": "Comprehensive school administration system for Safe English Boarding School featuring student admissions, fee collection, attendance, grading, examinations, homework, ID cards, and financial accounting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,213 @@
+{
+  "entities": {
+    "Student": {
+      "title": "Student",
+      "description": "Student enrolled in Safe English Boarding School",
+      "type": "object",
+      "properties": {
+        "admissionNo": { "type": "string", "description": "Unique admission number" },
+        "fullName": { "type": "string", "description": "Full legal name" },
+        "grade": { "type": "string", "description": "Class or grade level" },
+        "section": { "type": "string", "description": "Section identifier" },
+        "rollNo": { "type": "string", "description": "Class roll number" },
+        "dob": { "type": "string", "description": "Date of birth" },
+        "gender": { "type": "string", "description": "Gender" },
+        "bloodGroup": { "type": "string", "description": "Blood group" },
+        "guardianName": { "type": "string", "description": "Parent or guardian name" },
+        "guardianPhone": { "type": "string", "description": "Contact number" },
+        "address": { "type": "string", "description": "Residential address" },
+        "admissionDate": { "type": "string", "description": "Date of school admission" },
+        "status": { "type": "string", "description": "Enrollment status: Active, Inactive, Transferred" },
+        "feesDue": { "type": "number", "description": "Outstanding fee balance in NPR" }
+      },
+      "required": ["admissionNo", "fullName", "grade", "section", "status"]
+    },
+    "Staff": {
+      "title": "Staff",
+      "description": "Teacher or administrative employee profile",
+      "type": "object",
+      "properties": {
+        "employeeId": { "type": "string", "description": "Unique staff ID" },
+        "fullName": { "type": "string", "description": "Staff member full name" },
+        "designation": { "type": "string", "description": "Role or designation" },
+        "department": { "type": "string", "description": "Department name" },
+        "phone": { "type": "string", "description": "Contact phone number" },
+        "email": { "type": "string", "description": "Email address" },
+        "qualification": { "type": "string", "description": "Educational qualification" },
+        "status": { "type": "string", "description": "Employment status" },
+        "joinDate": { "type": "string", "description": "Joining date" }
+      },
+      "required": ["employeeId", "fullName", "designation", "status"]
+    },
+    "AttendanceRecord": {
+      "title": "AttendanceRecord",
+      "description": "Daily attendance session for a class and section",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string", "description": "Date of attendance record (YYYY-MM-DD)" },
+        "grade": { "type": "string", "description": "Class grade" },
+        "section": { "type": "string", "description": "Class section" },
+        "totalStudents": { "type": "number", "description": "Total students in section" },
+        "presentCount": { "type": "number", "description": "Number of present students" },
+        "absentCount": { "type": "number", "description": "Number of absent students" },
+        "lateCount": { "type": "number", "description": "Number of late students" },
+        "leaveCount": { "type": "number", "description": "Number of students on leave" }
+      },
+      "required": ["date", "grade", "section"]
+    },
+    "Exam": {
+      "title": "Exam",
+      "description": "Terminal or unit examination cycle",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Exam name, e.g., First Terminal Examination" },
+        "academicYear": { "type": "string", "description": "Academic year session" },
+        "term": { "type": "string", "description": "Term 1, Term 2, or Final" },
+        "startDate": { "type": "string", "description": "Start date" },
+        "endDate": { "type": "string", "description": "End date" },
+        "status": { "type": "string", "description": "Draft, Ongoing, Completed, Published" }
+      },
+      "required": ["title", "academicYear", "status"]
+    },
+    "MarkEntry": {
+      "title": "MarkEntry",
+      "description": "Exam marks awarded to a student",
+      "type": "object",
+      "properties": {
+        "examId": { "type": "string", "description": "Examination ID" },
+        "studentId": { "type": "string", "description": "Student document ID" },
+        "studentName": { "type": "string", "description": "Student full name" },
+        "grade": { "type": "string", "description": "Class grade" },
+        "section": { "type": "string", "description": "Section" },
+        "rollNo": { "type": "string", "description": "Roll number" },
+        "totalMarks": { "type": "number", "description": "Sum of obtained marks" },
+        "gpa": { "type": "number", "description": "Calculated GPA on 4.0 scale" },
+        "finalGrade": { "type": "string", "description": "Final letter grade (A+, A, B+, B, C+, C, D, NG)" },
+        "remarks": { "type": "string", "description": "Teacher remarks" }
+      },
+      "required": ["examId", "studentId", "grade"]
+    },
+    "FeePayment": {
+      "title": "FeePayment",
+      "description": "Fee collection transaction receipt",
+      "type": "object",
+      "properties": {
+        "receiptNo": { "type": "string", "description": "Official money receipt number" },
+        "studentId": { "type": "string", "description": "Student document ID" },
+        "studentName": { "type": "string", "description": "Student full name" },
+        "grade": { "type": "string", "description": "Class grade" },
+        "section": { "type": "string", "description": "Class section" },
+        "amount": { "type": "number", "description": "Amount paid in NPR" },
+        "paymentMethod": { "type": "string", "description": "Cash, Bank, eSewa, Khalti, Cheque" },
+        "month": { "type": "string", "description": "Month or fee head" },
+        "date": { "type": "string", "description": "Payment date" },
+        "collectedBy": { "type": "string", "description": "Cashier or accountant name" }
+      },
+      "required": ["receiptNo", "studentId", "amount", "paymentMethod", "date"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Income or expense accounting ledger entry",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "description": "income or expense" },
+        "title": { "type": "string", "description": "Transaction title or description" },
+        "category": { "type": "string", "description": "Category: Tuition, Salary, Maintenance, Stationery, Utilities" },
+        "amount": { "type": "number", "description": "Amount in NPR" },
+        "date": { "type": "string", "description": "Date of transaction" },
+        "paymentMode": { "type": "string", "description": "Cash, Bank Transfer, Online" },
+        "voucherNo": { "type": "string", "description": "Voucher or bill reference" }
+      },
+      "required": ["type", "title", "category", "amount", "date"]
+    },
+    "Notice": {
+      "title": "Notice",
+      "description": "Official school circular or announcement",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Notice headline" },
+        "content": { "type": "string", "description": "Notice details and body text" },
+        "targetAudience": { "type": "string", "description": "All, Teachers, Students, Parents" },
+        "priority": { "type": "string", "description": "Normal, Urgent, Holiday, Exam" },
+        "date": { "type": "string", "description": "Date published" },
+        "author": { "type": "string", "description": "Issuing authority, e.g., Principal Office" }
+      },
+      "required": ["title", "content", "targetAudience", "date"]
+    },
+    "Homework": {
+      "title": "Homework",
+      "description": "Teacher homework assignment for a class",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Homework topic or assignment title" },
+        "grade": { "type": "string", "description": "Assigned class grade" },
+        "section": { "type": "string", "description": "Assigned section" },
+        "subject": { "type": "string", "description": "Subject name" },
+        "instructions": { "type": "string", "description": "Assignment instructions" },
+        "dueDate": { "type": "string", "description": "Submission deadline" },
+        "assignedBy": { "type": "string", "description": "Teacher name" },
+        "createdAt": { "type": "string", "description": "Date assigned" }
+      },
+      "required": ["title", "grade", "subject", "instructions", "dueDate"]
+    },
+    "SchoolSetting": {
+      "title": "SchoolSetting",
+      "description": "School institutional configuration and branding",
+      "type": "object",
+      "properties": {
+        "schoolName": { "type": "string", "description": "School name" },
+        "motto": { "type": "string", "description": "School motto" },
+        "affiliation": { "type": "string", "description": "Board / Ministry affiliation" },
+        "address": { "type": "string", "description": "Location address" },
+        "phone": { "type": "string", "description": "Phone number" },
+        "email": { "type": "string", "description": "Official email" },
+        "academicYear": { "type": "string", "description": "Current active session" },
+        "currency": { "type": "string", "description": "Currency symbol" },
+        "principal": { "type": "string", "description": "Principal name" }
+      },
+      "required": ["schoolName", "academicYear"]
+    }
+  },
+  "firestore": {
+    "/students/{studentId}": {
+      "schema": { "$ref": "#/entities/Student" },
+      "description": "Student records directory"
+    },
+    "/staff/{staffId}": {
+      "schema": { "$ref": "#/entities/Staff" },
+      "description": "Staff and faculty members"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": { "$ref": "#/entities/AttendanceRecord" },
+      "description": "Daily class attendance records"
+    },
+    "/exams/{examId}": {
+      "schema": { "$ref": "#/entities/Exam" },
+      "description": "Examinations and schedules"
+    },
+    "/marks/{markId}": {
+      "schema": { "$ref": "#/entities/MarkEntry" },
+      "description": "Student marks and report card records"
+    },
+    "/feePayments/{paymentId}": {
+      "schema": { "$ref": "#/entities/FeePayment" },
+      "description": "Fee payment receipts"
+    },
+    "/transactions/{transactionId}": {
+      "schema": { "$ref": "#/entities/Transaction" },
+      "description": "Income and expense transactions ledger"
+    },
+    "/notices/{noticeId}": {
+      "schema": { "$ref": "#/entities/Notice" },
+      "description": "School notices and announcements"
+    },
+    "/homework/{homeworkId}": {
+      "schema": { "$ref": "#/entities/Homework" },
+      "description": "Homework and class assignments"
+    },
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/SchoolSetting" },
+      "description": "System settings and school configurations"
+    }
+  }
+}
